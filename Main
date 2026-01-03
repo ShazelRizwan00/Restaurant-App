@@ -1,0 +1,85 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+class Account {
+private:
+    string Name;
+    bool Admin;
+    string adress;
+public:
+    Account(const string& name="Guest",const string& adress="nil",bool admin=false)
+        :Name(name),adress(adress),Admin(admin) {
+    }
+    const string& getName() const {
+        return Name;
+    }
+    bool isAdmin() const {
+        return Admin;
+    }
+    const string& getAdress() const {
+        return adress;
+    }
+};
+class Food_Item {  //Creation of objects
+private:
+    string Name;
+    string Description;
+    int Price;
+    bool In_Stock;
+    public:
+    string getName() const {
+        return Name;
+    }
+    string getDescription() const {
+        return Description;
+    }
+    int getPrice() const {
+        return Price;
+    }
+    void updateprice(int price) {
+        Price = price;
+    }
+    void updatestatus(bool a) {
+        In_Stock = a;
+    }
+    bool isInStock() const {
+        return In_Stock;
+    }
+    Food_Item(const string& name="nill",const string& description="nill", int price=0,bool Status=true)
+        :Name(name),Description(description),Price(price),In_Stock(Status){}
+};
+vector<Food_Item> Menu;
+vector<Account> ValidAcc;
+Account CreateAccount() {
+    string Name;
+    string adress;
+    bool Admin;
+    int key=1982;
+    cout<<"Please enter your name: "<<endl;
+    getline(cin,Name);
+    cout<<"Please enter your adress: "<<endl;
+    getline(cin,adress);
+    cout<<"Please enter your Enter Admin Key: "<<endl;
+    cin>>key;
+    if (key==1982) {
+        Admin=1;
+    }else {
+        Admin=0;
+    }
+    return Account(Name,adress,Admin);
+}
+void addInMenu(Food_Item item) {   //update menu
+    Menu.push_back(item);
+    cout<<"Item Added Successfully "<<endl;
+}
+void addAccount(Account account) {
+    ValidAcc.push_back(account);
+    cout<<"Account Registered Sucessfully"<<endl;
+}
+//sign in bnao
+int main() {
+    cout<<"Welcome to XYZ Restaurant App"<<endl;
+    cout<<"Please Sign In "<<endl;
+
+}
